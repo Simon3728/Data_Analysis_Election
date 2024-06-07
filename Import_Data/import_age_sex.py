@@ -42,7 +42,7 @@ def insert_data_to_db(data, db_params):
                         id SERIAL PRIMARY KEY,
                         name VARCHAR(255),
                         year INTEGER,
-                        total_population FLOAT,
+                        total_population INTEGER,
                         population_0_4 FLOAT,
                         population_5_17 FLOAT,
                         population_18_24 FLOAT,

@@ -3,7 +3,6 @@ This script reads GDP data for US states from a CSV file, processes it, and inse
 It includes functions to read and process the CSV file, insert the data into the database, and verify the insertion.
 """
 
-
 import pandas as pd
 import psycopg2
 import configparser
