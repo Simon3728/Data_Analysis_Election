@@ -54,35 +54,6 @@ def perform_linear_regression_cv(X_train, y_train):
     lr.fit(X_train, y_train)
     return mean_r2, lr
 
-def perform_polynomial_regression_cv(X_train, y_train, degrees):
-    """
-    Perform polynomial regression with cross-validation to select the best degree.
-    """
-    best_r2 = -np.inf
-    best_degree = None
-    best_model = None
-    best_poly_features = None
-
-    for degree in degrees:
-        poly_features = PolynomialFeatures(degree=degree)
-        X_poly = poly_features.fit_transform(X_train)
-        poly_reg = LinearRegression()
-        # Use cross-validation to evaluate the model
-        scores = cross_val_score(poly_reg, X_poly, y_train, cv=5, scoring='r2')
-        current_r2 = scores.mean()
-        if current_r2 > best_r2:
-            best_r2 = current_r2
-            best_degree = degree
-            best_model = poly_reg
-            best_poly_features = poly_features
-
-    # Fit the best model on the entire training data
-    X_poly_best = best_poly_features.fit_transform(X_train)
-    best_model.fit(X_poly_best, y_train)
-
-    return best_degree, best_r2, best_model, best_poly_features
-
-
 def evaluate_metrics(model, X_train, X_test, y_train, y_test):
     """
     Evaluate model performance using R^2 and MSE metrics.

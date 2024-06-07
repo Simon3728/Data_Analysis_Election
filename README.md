@@ -2,26 +2,26 @@
 
 ## Project Overview
 
-This project is designed to practice data handling and analysis, focusing on various econimic and social factors and their potential relationships with election results across the United States. The dataset includes information on unemployment, GDP, population statistics, education, urbanization, and election results from all states spanning for many years.
+This project is designed to practice data handling and analysis, focusing on various economic and social factors and their potential relationships with election results across the United States. The dataset includes information on unemployment, GDP, population statistics, education, urbanization, and election results from all states spanning many years.
 
 ## Objectives
 
 1. **Data Collection and Importing**: Gather data from various sources and import it for analysis.
 2. **Data Verification**: Ensure the data is consistent and accurate.
 3. **Data Visualization**: Create visual representations of the data using various types of charts
-4. **Data Analysis**: Analyze the data to identify potential relationships between econimic and social factors and election results, particularly presidential election outcomes.
+4. **Data Analysis**: Analyze the data to identify potential relationships between economic and social factors and election results, particularly presidential election outcomes.
 
 ## Data Collection
 
 The dataset includes:
 - Unemployment rates
 - GDP Data
-- College finisher rates
+- College graduation rates
 - Population statistics
 - Urbanization levels
 - Election results (Presidential elections from 2000-2020)
 
-Data was collected from multiple sources, for a comprehensive dataset for analysis. But i do not garantee for the all this Data is correct and i did not check for correctness, since this was not the main goal of this project
+Data was collected from multiple sources for a comprehensive dataset for analysis. However, I do not guarantee that all this data is correct and I did not check for correctness, since this was not the main goal of this project.
 
 ## Data Importing
 
@@ -33,8 +33,8 @@ The data was imported using Python scripts. Key steps included:
 
 To ensure the accuracy of the data, several checks were performed:
 - Consistency checks to verify that data values make sense
-- Coverage to check, if there is Data missing for some years or states
-- Check Datatypes and Format of the Data
+- Coverage to check, if there is Data missing for states and year
+- Checking data types and formats
 
 ## Data Visualization
 
@@ -50,7 +50,7 @@ Various types of visualizations were created to understand the data better:
 
 ### Age and Sex
 
-![Urbanization Levels](images/urbanization_visualization.png)
+![Urbanization Levels](Visualize_Data/Plots/age_sex.png)
 
 ### Election Results
 
@@ -58,38 +58,42 @@ Various types of visualizations were created to understand the data better:
 
 ## Analysis and Results
 
-The main goal of the analysis was to determine if there is a relationship between the socio-economic data of each state and its presidential election results. Several techniques were employed:
+The main goal of the analysis was to determine if there is a relationship between the economic and social data of each state and its presidential election results. Several techniques were employed:
 
 ### K-Nearest Neighbors (KNN)
 
-Used to classify states based on their socio-economic data and predict election outcomes.
+For the implementation of the K-Nearest Neighbors (KNN) algorithm, I used a greedy feature selection method combined with a grid search for hyperparameter tuning. This approach iteratively selects features that improve the model's R-squared score, ensuring only the most impactful features are included in the final model. Cross-validation with a grid search is performed to determine the optimal number of neighbors (k) that maximizes the model's performance. This ensures both efficient feature selection and optimal tuning of the KNN regression model.
+
+![KNN Results](Analyse_Data/Results/KNN.png)
 
 ### Linear Regression
 
-Applied to identify trends and relationships between individual socio-economic factors and election results.
+The approach for the linear regression is similar, using greedy feature selection and cross-validation. Features are iteratively added based on their contribution to improving the model's R-squared score, ensuring an optimal set of features and evaluation by the linear regression model.
+
+![Linear Regression Results](Analyse_Data/Results/Linear_Reg.png)
 
 ### Polynomial Regression
 
-Utilized to capture more complex relationships between the data variables.
+The approach for polynomial regression is similar, using greedy feature selection combined with a grid search for the best polynomial degree. Features are iteratively selected based on their improvement of the model's R-squared score, ensuring optimal feature selection and degree determination for the polynomial regression model.
+
+![Polynomial Regression Results](Analyse_Data/Results/Polynomial_Reg.png)
 
 ### Findings
 
-The analysis revealed that the data has too much variance to indicate a clear relationship between the socio-economic factors and election outcomes. This suggests that a more direct study of individual voter characteristics would be necessary to obtain meaningful insights. Factors such as political preferences (Democrat or Republican) likely require detailed individual-level data to reduce variance and improve the accuracy of predictions.
+The analysis showed that there's too much variation in the data to pinpoint a clear link between socio-economic factors and election outcomes. This means we would need a more targeted study of individual voter traits to get meaningful insights. Detailed data on things like political preferences (Democrat or Republican) at the individual level would help reduce this variation and improve prediction accuracy.
 
 ## Conclusion
 
-This project provided valuable insights into the complexities of socio-economic data analysis and its relationship with election results. While no definitive conclusions were drawn, the process highlighted the importance of comprehensive data and the challenges of variance in large datasets.
+This project provided insights into the complexities of analyzing social and economic data and its connection to election results. While I didn't reach any definitive conclusions, the process shows the importance of comprehensive data and the challenges of variance in large datasets.
 
-## Code
 
-The project includes several Python scripts for data processing, visualization, and analysis:
 
-- `data_processing.py`: Handles data importing and preprocessing.
-- `main.py`: Main script to run the analysis.
-- `plot_functions.py`: Contains functions for generating various plots.
-- `import_education.py`: Specific script for importing education data.
-- `verify_age_sex_data.py`: Verifies and cleans age and sex data.
-- `visualize_age_sex.py`: Generates visualizations for age and sex data.
-- `visualize_election.py`: Creates visualizations for election results.
-- `visualize_gdp.py`: Generates GDP visualizations.
-- `visualize_unemployment.py`: Creates unemployment rate visualizations.
+
+
+
+
+
+
+
+
+
